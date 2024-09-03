@@ -4,11 +4,12 @@ from torchvision import transforms
 import os
 from .feature_extraction.extractor import ViTExtractor
 import yaml
-from peft import PeftModel, LoraConfig, get_peft_model
+from peft_zero_one import PeftModel, LoraConfig, get_peft_model
 from .feature_extraction.vit_wrapper import ViTConfig, ViTModel
 from .config import dreamsim_args, dreamsim_weights
 import os
 import zipfile
+from cached_path import get_cache_dir
 
 
 class PerceptualModel(torch.nn.Module):
@@ -191,7 +192,7 @@ def download_weights(cache_dir, dreamsim_type):
             zip_ref.extractall(cache_dir)
 
 
-def dreamsim(pretrained: bool = True, device="cuda", cache_dir="./models", normalize_embeds: bool = True,
+def dreamsim(pretrained: bool = True, device="cuda", cache_dir=get_cache_dir(), normalize_embeds: bool = True,
              dreamsim_type: str = "ensemble"):
     """ Initializes the DreamSim model. When first called, downloads/caches model weights for future use.
 

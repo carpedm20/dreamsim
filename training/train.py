@@ -4,12 +4,12 @@ import pytorch_lightning as pl
 from pytorch_lightning import Trainer, seed_everything
 from pytorch_lightning.loggers import TensorBoardLogger
 from pytorch_lightning.callbacks import ModelCheckpoint
-from util.train_utils import Mean, HingeLoss, seed_worker
-from util.utils import get_preprocess
+from dreamsim.util.train_utils import Mean, HingeLoss, seed_worker
+from dreamsim.util.utils import get_preprocess
 from dataset.dataset import TwoAFCDataset
 from torch.utils.data import DataLoader
 import torch
-from peft import get_peft_model, LoraConfig, PeftModel
+from peft_zero_one import get_peft_model, LoraConfig, PeftModel
 from dreamsim import PerceptualModel
 from dreamsim.feature_extraction.vit_wrapper import ViTModel, ViTConfig
 import os

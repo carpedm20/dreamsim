@@ -1,5 +1,5 @@
 from torch.utils.data import Dataset
-from util.utils import get_preprocess_fn
+from dreamsim.util.utils import get_preprocess_fn
 from torchvision import transforms
 import pandas as pd
 import numpy as np

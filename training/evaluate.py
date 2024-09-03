@@ -1,7 +1,7 @@
 from pytorch_lightning import seed_everything
 import torch
 from dataset.dataset import TwoAFCDataset
-from util.utils import get_preprocess
+from dreamsim.util.utils import get_preprocess
 from torch.utils.data import DataLoader
 import os
 import yaml
